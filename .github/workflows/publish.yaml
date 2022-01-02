@@ -1,6 +1,6 @@
 name: ci
 
-on: [push, workflow_dispatch]
+on: [release, workflow_dispatch]
 
 jobs:
   qemu:
@@ -32,12 +32,21 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           
       -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            ankur512512/argocd-nginx    
+        
+      -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ankur512512/argocd-nginx:1.0
+          tags: ${{ steps.meta.outputs.tags }}
           context: .
           platforms: linux/amd64,linux/arm64
         
