@@ -10,7 +10,7 @@ spec:
     - host: ak.webhop.me
       http:
         paths:
-          - path: /argo-sample
+          - path: /myapp
             pathType: Prefix
             backend:
               service:
