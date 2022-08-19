@@ -7,10 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: ankur.servehttp.com
+    - host: ak.webhop.me
       http:
         paths:
-          - path: /
+          - path: /argo-sample
             pathType: Prefix
             backend:
               service:
