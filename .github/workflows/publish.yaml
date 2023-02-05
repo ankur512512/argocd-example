@@ -37,7 +37,7 @@ jobs:
         
       - name: Build & Publish
         run: |
-          SHORT_SHA=`git rev-parse --short "$GITHUB_SHA"`
+          export SHORT_SHA=`git rev-parse --short "$GITHUB_SHA"`
           docker buildx build --platform=linux/amd64,linux/arm64 -t ankur512512/argocd-nginx:$SHORT_SHA .
           # docker build -t ankur512512/argocd-nginx:$SHORT_SHA .
           docker push ankur512512/argocd-nginx:$SHORT_SHA
