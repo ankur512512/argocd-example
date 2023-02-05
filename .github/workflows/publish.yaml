@@ -43,7 +43,9 @@ jobs:
           
       - name: Updating image tag in deployment
         run: |
-          sed  "s/image: .*/image: ankur512512\/argocd-nginx:`git rev-parse --short $GITHUB_SHA`/" deployment.yaml
+          sed -i "s/image: .*/image: ankur512512\/argocd-nginx:`git rev-parse --short $GITHUB_SHA`/" deployment.yaml
+          git config --global user.email "ankurgarg1203@gmail.com"
+          git config --global user.name "Ankur Garg"
           git add .
           git commit -m "Updating image tag with the latest commit sha"
           git push origin main
