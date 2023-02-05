@@ -1,8 +1,7 @@
 name: ci
 
 on:
-  release:
-    types: [published]
+  push:
   workflow_dispatch:
 
 jobs:
@@ -41,7 +40,9 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ankur512512/argocd-nginx    
+            ankur512512/argocd-nginx
+          tags: |
+            type=edge,branch=main
         
       -
         name: Build and push
