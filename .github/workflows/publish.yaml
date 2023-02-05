@@ -37,8 +37,9 @@ jobs:
         
       - name: Build & Publish
         run: |
-          docker build -t ankur512512/argocd-nginx:$GITHUB_SHA .
-          docker push ankur512512/argocd-nginx:`git rev-parse --short "$GITHUB_SHA"`
+          SHORT_SHA = `git rev-parse --short "$GITHUB_SHA"`
+          docker build -t ankur512512/argocd-nginx:$SHORT_SHA .
+          docker push ankur512512/argocd-nginx:$SHORT_SHA
           
       - name: Updating image tag in deployment
         run: |
