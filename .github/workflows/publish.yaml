@@ -42,7 +42,7 @@ jobs:
           images: |
             ankur512512/argocd-nginx
           tags: |
-            type=edge,branch=main
+            type=sha
         
       -
         name: Build and push
