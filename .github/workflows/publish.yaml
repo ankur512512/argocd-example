@@ -45,7 +45,7 @@ jobs:
           sed  "s/image: .*/image: ankur512512\/argocd-nginx:`git rev-parse --short $GITHUB_SHA`/" deployment.yaml
           git add .
           git commit -m "Updating image tag with the latest commit sha"
-          git push
+          git push origin main
       
       
         
