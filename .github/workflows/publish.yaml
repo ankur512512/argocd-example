@@ -53,5 +53,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           context: .
           platforms: linux/amd64,linux/arm64
-        
+      
+      - name: Testing
+        run: echo $GITHUB_SHA
         
