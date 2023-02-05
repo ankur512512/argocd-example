@@ -37,7 +37,7 @@ jobs:
         
       - name: Build & Publish
         run: |
-          docker build -t ankur512512/argocd-nginx:$GITHUB_SHA
+          docker build -t ankur512512/argocd-nginx:$GITHUB_SHA .
           docker push ankur512512/argocd-nginx:$GITHUB_SHA
       
       
