@@ -38,7 +38,14 @@ jobs:
       - name: Build & Publish
         run: |
           docker build -t ankur512512/argocd-nginx:$GITHUB_SHA .
-          docker push ankur512512/argocd-nginx:$GITHUB_SHA
+          docker push ankur512512/argocd-nginx:`git rev-parse --short "$GITHUB_SHA"`
+          
+      - name: Updating image tag in deployment
+        run: |
+          sed  "s/image: .*/image: ankur512512\/argocd-nginx:`git rev-parse --short $GITHUB_SHA`/" deployment.yaml
+          git add .
+          git commit -m "Updating image tag with the latest commit sha"
+          git push
       
       
         
