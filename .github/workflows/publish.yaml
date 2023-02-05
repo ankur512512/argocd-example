@@ -37,9 +37,9 @@ jobs:
         
       - name: Build & Publish
         run: |
-          docker buildx build --platform=linux/amd64,linux/arm64 -t ankur512512/argocd-nginx .
-          docker images
-          docker push ankur512512/argocd-nginx:$GITHUB_SHA
+          docker build --platform=linux/amd64,linux/arm64 -t ankur512512/argocd-nginx:"$GITHUB_SHA" .
+          
+          docker push ankur512512/argocd-nginx:"$GITHUB_SHA"
           
       - name: Updating image tag in deployment
         run: |
