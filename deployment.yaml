@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ankur512512/argocd-nginx:5b33bf8a437dd5d22d9b3caecacd999745ef05b7
+          image: ankur512512/argocd-nginx:b38acce7026dbacfe49430e019915b5a814ca3a7
           imagePullPolicy: Always
           ports:
             - containerPort: 80
